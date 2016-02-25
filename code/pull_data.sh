@@ -17,7 +17,7 @@ while :; do
   if [ "$RESULTS" -eq "0" ]; then
     break
   else
-    cat /tmp/petitions.json >> $1
+    cat /tmp/petitions.json | jq '.results[]' >> $1
     if [ "$RESULTS" -lt "1000" ]; then
       break
     else
